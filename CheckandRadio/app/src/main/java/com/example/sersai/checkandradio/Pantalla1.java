@@ -16,6 +16,7 @@ public class Pantalla1 extends AppCompatActivity {
 
         final Button miBoton = (Button) findViewById(R.id.checkbox);
         final Button miBoton2 = (Button) findViewById(R.id.radio);
+        final Button miBoton3 = (Button) findViewById(R.id.toggle);
 
         miBoton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -33,6 +34,15 @@ public class Pantalla1 extends AppCompatActivity {
                 Bundle miBundle=new Bundle();
                 mio2.putExtras(miBundle);
                 startActivity(mio2);
+            }
+        });
+        miBoton3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent mio3=new Intent(Pantalla1.this, ActivityBotones.class);
+                Bundle miBundle=new Bundle();
+                mio3.putExtras(miBundle);
+                startActivity(mio3);
             }
         });
     }

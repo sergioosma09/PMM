@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Check" />
-        <activity android:name=".Radio"></activity>
+        <activity android:name=".Radio" />
+        <activity android:name=".ActivityBotones"></activity>
     </application>
 
 </manifest>
