@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <com.example.sersai.diferenteseventos.miBoton
+        android:id="@+id/cmdUno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Uno" />
+
+    <Button
+        android:id="@+id/cmdDos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_dark"
+        android:onClick="cmdDos_click"
+        android:text="Dos" />
+
+    <Button
+        android:id="@+id/cmdTres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Tres" />
+</LinearLayout>
