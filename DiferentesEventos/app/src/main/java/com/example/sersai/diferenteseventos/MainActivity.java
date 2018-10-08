@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -14,6 +15,7 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ctx=this;
         setContentView(R.layout.activity_main);
         Button btn=(Button)this.findViewById(R.id.cmdTres);
