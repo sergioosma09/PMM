@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AdaptadorTitulares</string>
+    <string name="pulsar" />
+    <string name="escribe" />
+    <string name="Pantalla1" />
+    <string name="Pantalla2" />
+    <string name="Pantalla3" />
+</resources>
