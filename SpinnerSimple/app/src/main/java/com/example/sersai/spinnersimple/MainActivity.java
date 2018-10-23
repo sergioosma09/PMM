@@ -62,30 +62,19 @@ public class MainActivity extends AppCompatActivity {
 
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public View getView(int position, View convertView, ViewGroup parent) {
-            View item = convertView;
-            ViewHolder holder;
-            if(item == null)
-            { LayoutInflater inflater = context.getLayoutInflater();
-                item = inflater.inflate(R.layout.listitem_titular, null);
+            LayoutInflater inflater =miActividad.getLayoutInflater();
+            View view=inflater.inflate(R.layout.desmilista, null);
 
-                holder = new ViewHolder();
-                holder.lblTitulo = (TextView)item.findViewById(R.id.LblTitulo);
-                holder.lblSubtitulo = (TextView)item.findViewById(R.id.LblSubTitulo);
-                holder.lblImagen = (ImageView)item.findViewById(R.id.ivImagen);
+            TextView lblNombre=(TextView) item.findViewById(R.id.campoNombre);
+            TextView lblApellido=(TextView) item.findViewById(R.id.campoApellido);
+            TextView lblEdad=(TextView) item.findViewById(R.id.campoEdad);
 
-                item.setTag(holder);
-            }
-            else
-            {
-                holder = (ViewHolder)item.getTag(); }
-            holder.lblTitulo.setText(datos[position].getTitulo());
-            holder.lblSubtitulo.setText(datos[position].getSubTitulo());
-            holder.lblImagen.setBackground(getDrawable(datos[position].getImagen()));
-            return(item);
+            lblNombre.setText(personas[position].getNombre());
+            lblApellido.setText(personas[position].getApellido());
+            lblEdad.setText(Integer.toString(personas[position].getEdad()));
+            return item;
+
         }
     }
-
-
-
 
 }
