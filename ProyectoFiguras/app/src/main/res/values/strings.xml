@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ProyectoFiguras</string>
+    <string name="redraw_button_label" />
+    <string name="heading_activity_draw_shapes2" />
+    <string name="random_shape_button_label" />
+    <string name="shape_drawable_button_label" />
 </resources>

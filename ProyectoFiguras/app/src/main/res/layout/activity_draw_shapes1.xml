@@ -4,16 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
     <Button
-        android:onClick="launchDrawShapes1"
+        android:onClick="redraw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/random_shape_button_label" />
-
-    <Button
-        android:onClick="launchDrawShapes2"
+        android:text="@string/redraw_button_label" />
+    <view
+        class="com.example.sersai.proyectofiguras.RandomShapeView"
+        android:id="@+id/drawing_area"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/shape_drawable_button_label" />
+        android:layout_height="match_parent" />
 </LinearLayout>
