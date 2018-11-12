@@ -57,4 +57,19 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.MenuOpc1:
+                lblMensaje.setText("Opcion 1 pulsada!");
+                return true;
+            case R.id.MenuOpc2:
+                lblMensaje.setText("Opcion 2 pulsada!");
+                return true;
+            case R.id.MenuOpc3:
+                lblMensaje.setText("Opcion 3 pulsada!");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

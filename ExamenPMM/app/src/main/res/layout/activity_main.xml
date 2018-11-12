@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/imagen2"
+            android:src="@drawable/ferrari1"
+            android:layout_width="match_parent"
+            android:layout_height="200px" />
+        <ImageView
+            android:id="@+id/image3"
+            android:src="@drawable/megan1"
+            android:layout_width="match_parent"
+            android:layout_height="200px" />
+        <ImageView
+            android:id="@+id/image4"
+            android:src="@drawable/leon2"
+            android:layout_width="match_parent"
+            android:layout_height="200px" />
+        <ImageView
+            android:id="@+id/image"
+            android:src="@drawable/fiesta1"
+            android:layout_width="match_parent"
+            android:layout_height="200px" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <RadioGroup
+        android:id="@+id/seguros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/sinSeguro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sin Seguro"/>
+        <RadioButton
+            android:id="@+id/TodoRiesgo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seguro a todo riesgo"/>
+    </RadioGroup>
+    <TextView
+        android:text="Indique que opción prefiere:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/aire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aire acondicionado"/>
+        <CheckBox
+            android:id="@+id/gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GPS"/>
+        <CheckBox
+            android:id="@+id/radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Radio/DVD"/>
+    </LinearLayout>
+    <EditText
+        android:id="@+id/precioaCalcular"
+        android:hint="Total precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+
+        android:id="@+id/calcular"
+        android:text="Total Precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

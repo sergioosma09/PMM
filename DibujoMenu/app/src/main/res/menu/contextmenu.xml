@@ -5,4 +5,9 @@
     <item android:id="@+id/CtxImg2"
         android:title="OpcImagen2"></item>
 
+    <item android:id="@+id/MenuOpc1" android:title="Opcion1"></item>
+    <item android:id="@+id/MenuOpc2" android:title="Opcion2"></item>
+    <item android:id="@+id/MenuOpc3" android:title="Opcion3"></item>
+
+
 </menu>
