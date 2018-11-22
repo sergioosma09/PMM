@@ -1,19 +1,19 @@
-package com.example.sersai.examenpmm;
+package com.example.sersai.examenpmm2;
 
 import java.io.Serializable;
 
-public class Alquiler implements Serializable {
+public class Coches implements Serializable {
     private int id;
     private String modelo;
     private String marca;
-    private float precio;
+    private int precioTotal;
     private int imagen;
 
-    public Alquiler (int id, String modelo, String marca, float precio, int imagen) {
+    public Coches (int id, String modelo, String marca, int precioTotal, int imagen) {
         this.id = id;
         this.modelo = modelo;
         this.marca = marca;
-        this.precio = precio;
+        this.precioTotal = precioTotal;
         this.imagen = imagen;
     }
 
@@ -29,14 +29,16 @@ public class Alquiler implements Serializable {
         return marca;
     }
 
-    public void setPrecio(float precio){
-        this.precio=precio;
-    }
-    public float getPrecio() {
-        return precio;
+    public int getPrecioTotal() {
+        return precioTotal;
     }
 
     public int getImagen() {
         return imagen;
+    }
+
+    @Override
+    public String toString() {
+        return "Modelo: " + this.modelo + "Marca: " + this.marca + "Precio total: " + precioTotal;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.sersai.examenpmm;
+package com.example.sersai.examenpmm2;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,8 +7,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -21,25 +19,25 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private View vista;
-    private static int precio;
+
+    private static int precioCoche;
     private static double horas;
     private static EditText tiempo;
     private static RadioButton noSeguro;
     private static RadioButton seguro;
-    private static TextView eleccion;
+    private static TextView elec;
     private static CheckBox aire;
     private static CheckBox gps;
-    private static CheckBox radio;
+    private static CheckBox dvd;
     private static TextView precioTotal;
     private double total;
     private double extras = 0;
-    private Alquiler alquiler;
-    private Alquiler[] datos = new Alquiler[] {
-            new Alquiler(0, "Megane", "Seat", 20, R.drawable.megan1),
-            new Alquiler(1, "X-11", "Ferrari", 100, R.drawable.ferrari1),
-            new Alquiler(2, "Leon", "Seat", 30, R.drawable.leon2),
-            new Alquiler(3, "Fiesta", "Ford", 40, R.drawable.fiesta1)
+    private Coches coche;
+    private Coches[] coches = new Coches[] {
+            new Coches(0, "Megane", "Seat", 20, R.drawable.megan1),
+            new Coches(1, "X-11", "Ferrari", 100, R.drawable.ferrari1),
+            new Coches(2, "Leon", "Seat", 30, R.drawable.leon1),
+            new Coches(3, "Fiesta", "Ford", 40, R.drawable.fiesta1)
     };
 
     @Override
@@ -49,19 +47,18 @@ public class MainActivity extends AppCompatActivity {
         ListView lstOpciones = (ListView) findViewById(R.id.opciones);
         AdaptadorCoches adaptador = new AdaptadorCoches(this);
         lstOpciones.setAdapter(adaptador);
-        eleccion = (TextView) findViewById(R.id.eleccion);
-        registerForContextMenu(vista);
+        elec = (TextView) findViewById(R.id.elec);
 
         lstOpciones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick (AdapterView arg0, View arg1, int position, long id) {
-                if (position == 0) precio = 20;
-                if (position == 1) precio = 100;
-                if (position == 2) precio = 30;
-                if (position == 3) precio = 40;
+                if (position == 0) precioCoche = 20;
+                if (position == 1) precioCoche = 100;
+                if (position == 2) precioCoche = 30;
+                if (position == 3) precioCoche = 40;
 
-                eleccion.setText("Coche Elegido: " + datos[position].getMarca() + " " + datos[position].getModelo());
+                elec.setText("Coche Elegido: " + coches[position].getMarca() + " " + coches[position].getModelo());
 
-                alquiler = new Alquiler(datos[position].getId(), datos[position].getModelo(), datos[position].getMarca(), datos[position].getPrecio(), datos[position].getImagen());
+                coche = new Coches(coches[position].getId(), coches[position].getModelo(), coches[position].getMarca(), coches[position].getPrecioTotal(), coches[position].getImagen());
             }
         });
 
@@ -75,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         aire = (CheckBox) findViewById(R.id.aire);
 
         gps = (CheckBox) findViewById(R.id.gps);
-        radio = (CheckBox) findViewById(R.id.radio);
+        dvd = (CheckBox) findViewById(R.id.radio);
 
         precioTotal = (TextView) findViewById(R.id.total);
     }
@@ -85,24 +82,24 @@ public class MainActivity extends AppCompatActivity {
 
         horas = Double.valueOf(tiempo.getText().toString());
 
-        total = horas * precio;
+        total = horas * precioCoche;
 
         if (seguro.isChecked())
             total *= 1.3;
 
         Bundle miBundle = new Bundle();
-        miBundle.putSerializable("TODO", alquiler);
+        miBundle.putSerializable("TODO", coche);
         if (!seguro.isChecked())
-            miBundle.putString("Tarifa", "Normal");
+            miBundle.putString("TARIFA", "Normal");
         else
-            miBundle.putString("Tarifa", "Urgente");
-        miBundle.putDouble("Peso", Double.valueOf(tiempo.getText().toString()));
+            miBundle.putString("TARIFA", "Urgente");
+        miBundle.putDouble("PESO", Double.valueOf(tiempo.getText().toString()));
 
         if (aire.isChecked())
             extras += 50;
         if(gps.isChecked())
             extras += 50;
-        if (radio.isChecked())
+        if (dvd.isChecked())
             extras += 50;
 
         total += extras;
@@ -119,20 +116,20 @@ public class MainActivity extends AppCompatActivity {
         Intent miIntent = new Intent(MainActivity.this, Pantalla2.class);
         Bundle miBundle = new Bundle();
 
-        miBundle.putSerializable("TODO", alquiler);
+        miBundle.putSerializable("Todo", coche);
 
-        miBundle.putDouble("EXTRAS", extras);
+        miBundle.putDouble("Extras", extras);
 
-        miBundle.putString("HORAS", String.valueOf(horas));
+        miBundle.putString("Horas", String.valueOf(horas));
 
         if (noSeguro.isChecked())
-            miBundle.putString("SEGURO", "Sin seguro");
+            miBundle.putString("Seguro", "Sin seguro");
         else
-            miBundle.putString("SEGURO", "Seguro a todo riesgo");
+            miBundle.putString("Seguro", "Seguro a todo riesgo");
 
-        total = horas * precio + extras;
+        total = horas * precioCoche + extras;
 
-        miBundle.putDouble("PRECIO", total);
+        miBundle.putDouble("Precio", total);
 
         miIntent.putExtras(miBundle);
         startActivity(miIntent);
@@ -149,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
         Activity context;
 
         AdaptadorCoches(Activity context) {
-            super(context, R.layout.listzonas, datos);
+            super(context, R.layout.linear_layout, coches);
             this.context = context;
         }
 
@@ -160,33 +157,29 @@ public class MainActivity extends AppCompatActivity {
 
             if (item == null) {
                 LayoutInflater inflater = context.getLayoutInflater();
-                item = inflater.inflate(R.layout.listzonas, null);
+                item = inflater.inflate(R.layout.linear_layout, null);
                 holder = new ViewHolder();
                 holder.modelo = (TextView) item.findViewById(R.id.modelo);
                 holder.marca = (TextView) item.findViewById(R.id.marca);
                 holder.precio = (TextView) item.findViewById(R.id.precio);
-                holder.imagen = (ImageView) item.findViewById(R.id.coche);
+                holder.imagen = (ImageView) item.findViewById(R.id.imagen);
 
                 item.setTag(holder);
             } else {
                 holder = (ViewHolder) item.getTag();
             }
 
-            holder.modelo.setText(datos[position].getModelo());
+            holder.modelo.setText(coches[position].getModelo());
 
-            holder.marca.setText(datos[position].getMarca());
+            holder.marca.setText(coches[position].getMarca());
 
-            holder.precio.setText((int) datos[position].getPrecio());
+            holder.precio.setText(coches[position].getPrecioTotal());
 
-            holder.imagen.setBackground(getDrawable(datos[position].getImagen()));
+            holder.imagen.setBackground(getDrawable(coches[position].getImagen()));
 
             return (item);
         }
-        public boolean onCreateOptionsMenu(Menu menu) {
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.menu, menu);
-            return true;
-        }
     }
 }
+
 

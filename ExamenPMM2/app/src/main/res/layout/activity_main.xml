@@ -100,7 +100,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="300dp"
         android:ems="10"
-        android:hint="Horas"
+        android:hint="Número de Horas"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +139,7 @@
         app:layout_constraintVertical_bias="0.11" />
 
     <TextView
-        android:id="@+id/eleccion"
+        android:id="@+id/elec"
         android:layout_width="146dp"
         android:layout_height="37dp"
         android:layout_marginBottom="8dp"

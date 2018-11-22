@@ -1,4 +1,4 @@
-package com.example.sersai.examenpmm;
+package com.example.sersai.examenpmm2;
 
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -24,10 +24,10 @@ public class Pantalla2 extends AppCompatActivity {
         final TextView total = (TextView) findViewById(R.id.total);
 
 
-        Alquiler coche = (Alquiler) getIntent().getSerializableExtra("TODO");
+        Coches coche = (Coches) getIntent().getSerializableExtra("Todo");
         imagen.setBackground(getDrawable(coche.getImagen()));
         modelo.setText("Modelo: " + coche.getMarca() + " " + coche.getModelo());
-        precio.setText("€/Hora: " + coche.getPrecio());
+        precio.setText("Hora: " + coche.getPrecioTotal());
         extras.setText("Extras: " + String.valueOf(getIntent().getDoubleExtra("Extras", 0)) + "€");
         horas.setText("Tiempo: " + getIntent().getStringExtra("Horas") + " horas");
         seguro.setText("Seguro: " + getIntent().getStringExtra("Seguro"));
