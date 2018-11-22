@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BiciProyecto</string>
+    <string name="Jugar" />
+    <string name="Configurar" />
+    <string name="AcercaDe" />
+    <string name="Salir" />
+    <string name="TextoAcercaDe" />
+</resources>
