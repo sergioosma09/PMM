@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     package="com.example.sersai.examenpmmdesdecasa">
+=======
+    package="com.example.sergi.examenpmmdesdecasa">
+>>>>>>> 2259d116f6d4171354efab968d7aa4f740a75c9d
 
     <application
         android:allowBackup="true"
@@ -16,9 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".Pantalla2" />
         <activity android:name=".MiDibujo" />
         <activity android:name=".PantallaImagen"></activity>
+=======
+        <activity android:name=".Pantalla2"></activity>
+>>>>>>> 2259d116f6d4171354efab968d7aa4f740a75c9d
     </application>
 
 </manifest>
