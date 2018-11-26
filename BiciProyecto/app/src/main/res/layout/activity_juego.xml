@@ -4,8 +4,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
-    <view
-        class="com.example.sersai.biciproyecto.VistaJuego"
+    <com.example.sersai.biciproyecto.VistaJuego
         android:id="@+id/VistaJuego"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
