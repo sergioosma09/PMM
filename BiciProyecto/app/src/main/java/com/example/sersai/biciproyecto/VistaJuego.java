@@ -79,6 +79,7 @@ public class VistaJuego extends View {
         for (Grafico coche: Coches) {
             coche.dibujaGrafico(canvas);
         }
+        bici.dibujaGrafico(canvas);
 
     }
     protected synchronized void actualizaMovimiento() {
