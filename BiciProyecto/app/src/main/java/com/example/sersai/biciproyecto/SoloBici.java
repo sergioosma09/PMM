@@ -12,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -19,19 +22,33 @@ public class SoloBici extends AppCompatActivity {
 
     private Button bAcercaDe;
     private Button bJuego;
+    View miFragmento;
+    CheckBox apareceFrag;
+    View datapicker;
+    CheckBox datapick;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solo_bici);
+        miFragmento=(View) findViewById(R.id.ejemplo);
+        apareceFrag=(CheckBox) findViewById(R.id.checkid);
+        datapicker=(View) findViewById(R.id.ejempl);
+        datapick=(CheckBox) findViewById(R.id.data);
+
 
         //Boton y escuchador para la pantalla "Juego"
         bJuego = (Button) findViewById(R.id.Boton01);
+
+
         bJuego.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
                 lanzarJuego();
             }
         });
+
+
+
         //Boton y escuchador para la pantalla "Acerca de"
         bAcercaDe = (Button) findViewById(R.id.Boton03);
         bAcercaDe.setOnClickListener(new OnClickListener() {
@@ -39,6 +56,24 @@ public class SoloBici extends AppCompatActivity {
                 lanzarAcercaDe();
             }
         });
+
+
+        apareceFrag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean b) {
+                if(apareceFrag.isChecked()) miFragmento.setVisibility(View.VISIBLE);
+                else miFragmento.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        datapick.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean b) {
+                if(datapick.isChecked()) datapicker.setVisibility(View.VISIBLE);
+                else datapicker.setVisibility(View.INVISIBLE);
+            }
+        });
+
 
     }
 
@@ -53,4 +88,5 @@ public class SoloBici extends AppCompatActivity {
         Intent i = new Intent(this, AcercaDe.class);
         startActivity(i);
     }
+
 }

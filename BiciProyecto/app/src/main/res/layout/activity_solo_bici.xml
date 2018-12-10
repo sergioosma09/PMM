@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -20,5 +20,32 @@
         android:layout_height="wrap_content"
         android:text="AcercaDe"
         android:id="@+id/Boton03"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Si necesitais ayuda clickad"
+        android:id="@+id/checkid"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora"
+        android:id="@+id/data" />
+    <fragment
+        android:name="com.example.sersai.biciproyecto.DataPicker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/ejempl"
+        tools:layout="@layout/fragment_blank"></fragment>
+
+    <fragment
+        android:name="com.example.sersai.biciproyecto.Fragmentos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/ejemplo"
+        tools:layout="@layout/fragment_blank"></fragment>
 
 </LinearLayout>
