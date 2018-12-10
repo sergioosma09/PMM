@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DosSpinners</string>
+    <string-array name="array_coches">
+        <item>Ferrari</item>
+        <item>Audi</item>
+    </string-array>
+
+    <string-array name="array_ferrari">
+        <item>Berlinetta</item>
+        <item>Maranello</item>
+        <item>Italia</item>
+    </string-array>
+    <string-array name="array_audi">
+        <item>Cabrio</item>
+        <item>Avant</item>
+        <item>Coupé</item>
+    </string-array>
+</resources>
