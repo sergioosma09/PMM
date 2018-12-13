@@ -14,9 +14,6 @@ public class DataPicker extends Fragment{
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.datapicker, container, false);
 
-        TextView miHora=(TextView) v.findViewById(R.id.hora);
-        TimePicker miData=(TimePicker) v.findViewById(R.id.);
-        String textoHora=miData.getCurrentMinute() + "." +  miData.getCurrentHour();
     }
 
 }
