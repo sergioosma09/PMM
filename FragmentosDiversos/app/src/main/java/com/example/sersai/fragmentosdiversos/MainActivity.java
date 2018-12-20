@@ -15,14 +15,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);        // BotÃ³n de aÃ±adir fragments
+        setContentView(R.layout.activity_main);
+        int aux = (int) Math.random() * 10;
         Button button = (Button) findViewById(R.id.newFragment);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {addFragment();}
         });
         if (savedInstanceState == null) {
             // aÃ±adir el primer fragment
-            Fragment fragment = SimpleFragment.newInstance(mStackPosition);
+            Fragment fragment = SimpleFragment.newInstance(mStackPosition, aux);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.fragmentShow, fragment).commit();
         } else {
@@ -40,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
     void addFragment() {
         mStackPosition++;
+        int aux = (int) Math.random() * 10;
         // Instanciamos nuevo Fragment
-        Fragment newFragment = SimpleFragment.newInstance(mStackPosition);
+        Fragment newFragment = SimpleFragment.newInstance(mStackPosition, aux);
         // Se aÃ±ade el Fragment a la actividad
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragmentShow, newFragment);
