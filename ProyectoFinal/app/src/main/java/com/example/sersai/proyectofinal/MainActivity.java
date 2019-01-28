@@ -3,6 +3,7 @@ package com.example.sersai.proyectofinal;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -26,10 +27,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     public Pizzas[] pizzas = new Pizzas[]{
 
-            new Pizzas("Barbacoa",10,20,false, false, false, false, false,  R.drawable.barbacoa),
-            new Pizzas("Pecado Carnal",10,100,false, false, false, false, false,  R.drawable.pecado),
-            new Pizzas("Bourbon",10,30, false,false, false, false, false,  R.drawable.bourbon),
-            new Pizzas("Texas",10,40, false,false, false, false, false,  R.drawable.texas)
+            new Pizzas("Barbacoa",10,0,false, false, false, false, false,  R.drawable.barbacoa),
+            new Pizzas("Pecado Carnal",10,0,false, false, false, false, false,  R.drawable.pecado),
+            new Pizzas("Bourbon",10,0, false,false, false, false, false,  R.drawable.bourbon),
+            new Pizzas("Texas",10,0, false,false, false, false, false,  R.drawable.texas)
     };
     public Pizzas [] mipizza;
     public int indice = 0;
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Abrimos la base de datos en modo escritura
+        ClientesSQLiteHelper cliBDh = new ClientesSQLiteHelper(this, "DBClientes", null, 1);
+
+        //Obtenemos referencia a la base de datos para poder modificarla.
+        SQLiteDatabase bd = cliBDh.getWritableDatabase();
         spinner = (Spinner) findViewById(R.id.spinner);
         AdaptadorPizzas miAdaptador = new AdaptadorPizzas(this);
         spinner.setAdapter(miAdaptador);
