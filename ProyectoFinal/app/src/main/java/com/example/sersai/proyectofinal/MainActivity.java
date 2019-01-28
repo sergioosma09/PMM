@@ -26,10 +26,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     public Pizzas[] pizzas = new Pizzas[]{
 
-            new Pizzas("Barbacoa","8",20,false, false, false, false, false, false, R.drawable.barbacoa),
-            new Pizzas("Pecado Carnal","9",100,false, false, false, false, false, false, R.drawable.pecado),
-            new Pizzas("Bourboun","8",30, false,false, false, false, false, false, R.drawable.bourboun),
-            new Pizzas("Texas","9",40, false,false, false, false, false, false, R.drawable.texas)
+            new Pizzas("Barbacoa",10,20,false, false, false, false, false,  R.drawable.barbacoa),
+            new Pizzas("Pecado Carnal",10,100,false, false, false, false, false,  R.drawable.pecado),
+            new Pizzas("Bourbon",10,30, false,false, false, false, false,  R.drawable.bourbon),
+            new Pizzas("Texas",10,40, false,false, false, false, false,  R.drawable.texas)
     };
     public Pizzas [] mipizza;
     public int indice = 0;
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pizzas[indice].setPrecioTotal(0);
+                pizzas[indice].setPrecioTotal(10);
                 boolean flag = false;
                 if(buttonRecoger.isChecked()){
                     pizzas[indice].setSeguro(true);
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     pizzas[indice].setSeguro(true);
                     flag = true;
                 }else{
-                    Toast.makeText(getApplicationContext(), "Selecciona una forma de seguro",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Selecciona una forma de conseguir la pizza",Toast.LENGTH_SHORT).show();
                     flag = false;
                 }
 
@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
                     pizzas[indice].setSalsa(true);
                     pizzas[indice].setPrecioTotal(pizzas[indice].getPrecioTotal() + 1);
                 }
-                if(pizzas[indice].isDomicilio() == true){
+                if(buttonDomicilio.isChecked()){
+                    pizzas[indice].setDomicilio(true);
                     pizzas[indice].setPrecioTotal(pizzas[indice].getPrecioTotal() + 5);
                 }
 
@@ -136,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
             return item;
         }
     }
+
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflate  = getMenuInflater();
         inflate.inflate(R.menu.menu, menu);
@@ -144,12 +146,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.MenuOpc1:
-                Intent intent1 = new Intent(MainActivity.this, PantallaInfo.class);
+                Intent intent1 = new Intent(MainActivity.this, Imagen.class);
                 startActivity(intent1);
                 return true;
 
             case R.id.MenuOpc2:
-                Intent intent2 = new Intent(MainActivity.this, MiDibujo.class);
+                Intent intent2 = new Intent(MainActivity.this, AcercaDe.class);
                 startActivity(intent2);
                 return true;
 
