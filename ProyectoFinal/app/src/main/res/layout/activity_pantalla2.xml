@@ -9,7 +9,7 @@
         android:layout_gravity="center"
         android:id="@+id/imagen2"
         android:layout_width="1000px"
-        android:layout_height="500px"  />
+        android:layout_height="600px"  />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"

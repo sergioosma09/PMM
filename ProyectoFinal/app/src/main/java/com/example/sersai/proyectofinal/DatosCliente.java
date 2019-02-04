@@ -1,4 +1,4 @@
-package com.example.sersai.proyectopmmfinall;
+package com.example.sersai.proyectofinal;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+
 public class DatosCliente extends BaseAdapter {
     private Context context;
     private ArrayList<Usuario> userModelArrayList;
@@ -18,7 +19,10 @@ public class DatosCliente extends BaseAdapter {
         this.context = context;
         this.userModelArrayList = userModelArrayList;
     }
+    private class ViewHolder {
 
+        protected TextView tvnombre, tvedad, tvdescrip;
+    }
 
     @Override
     public int getCount() {
@@ -55,15 +59,12 @@ public class DatosCliente extends BaseAdapter {
             holder = (ViewHolder)convertView.getTag();
         }
 
-        holder.tvnombre.setText("Nombre: " + userModelArrayList.get(position).getName());
-        holder.tvedad.setText("Edad: " + userModelArrayList.get(position).getEdad());
-        holder.tvdescrip.setText("Descripcion: " + userModelArrayList.get(position).getDescripcion());
+        holder.tvnombre.setText("Nombre: "+userModelArrayList.get(position).getName());
+        holder.tvedad.setText("Edad: "+userModelArrayList.get(position).getEdad());
+        holder.tvdescrip.setText("Descripcion: "+userModelArrayList.get(position).getDescripcion());
 
         return convertView;
     }
-    private class ViewHolder {
 
-        protected TextView tvnombre, tvedad, tvdescrip;
-    }
 
 }
