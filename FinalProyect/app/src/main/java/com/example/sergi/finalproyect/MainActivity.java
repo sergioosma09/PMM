@@ -41,10 +41,7 @@ public class MainActivity extends ListActivity{
         setContentView(R.layout.activity_main);
         // abrir la base de datos
         mDbHelper = new DataBaseHelper(this);
-<<<<<<< HEAD
         mDbHelper.open();
-=======
->>>>>>> d944fb68d9e1df4cd7125b702faaf50bcee21bdb
         try {
             fillData();
         } catch (SQLException e) {
@@ -63,13 +60,8 @@ public class MainActivity extends ListActivity{
         Button delete=(Button)findViewById(R.id.delete);
         delete.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-<<<<<<< HEAD
                 mDbHelper.drop();
                 Toast.makeText(MainActivity.this, "Eliminada la tabla", Toast.LENGTH_SHORT).show();
-=======
-                dataBaseHelper.drop();
-                Toast.makeText(MainActivity.this, "Eliminado Correctamente!", Toast.LENGTH_SHORT).show();
->>>>>>> d944fb68d9e1df4cd7125b702faaf50bcee21bdb
 
             }
 
