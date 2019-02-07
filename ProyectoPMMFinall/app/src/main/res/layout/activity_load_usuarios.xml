@@ -12,15 +12,14 @@
         android:gravity="center"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
-        android:textColor="#000"
         android:text="Muestra de datos"/>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lista">
+        android:id="@+id/lista"/>
 
 
-    </ListView>
+
 
 </LinearLayout>

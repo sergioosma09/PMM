@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
     int indice = 0;
 
     DatosFiguras [] datosFiguras = new DatosFiguras[] {
-            new DatosFiguras("Rectangulo",0, 0, R.drawable.rectangulo),
-            new DatosFiguras("Triangulo",0, 0, R.drawable.triangulo),
-            new DatosFiguras("Cuadrado",0, 0, R.drawable.cuadrado)
+            new DatosFiguras("Rectangulo",20, 20, R.drawable.rectangulo),
+            new DatosFiguras("Triangulo",20, 20, R.drawable.triangulo),
+            new DatosFiguras("Cuadrado",20, 20, R.drawable.cuadrado)
     };
 
 
