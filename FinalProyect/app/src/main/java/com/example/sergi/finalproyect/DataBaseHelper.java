@@ -21,10 +21,19 @@ public class DataBaseHelper {
     public static final String SL_ID_PIZZA = "importance";
     public static final String SL_TYPE = "type";
 
+
+    private static final String DATABASE_TABLE_PEDIDO="pedido";
+    public static final String PEDIDO_ID="id";
+    public static final String PEDIDO_NAME="name";
+    public static final String PEDIDO_PRICE="price";
+
     // SQL de creación de la tabla
     private static final String DATABASE_CREATE_PIZZERIA =
             "create table "+ DATABASE_TABLE_PIZZERIA +" ("+SL_ID+" integer primary key, "+ SL_NAME +" text not null, "+ SL_FOOD +" text not null, "
                     + SL_ID_PIZZA +" integer not null, "+ SL_TYPE +" text)";
+    private static final String DATABASE_CREATE_PEDIDO =
+            "create table "+ DATABASE_TABLE_PEDIDO +" ("+PEDIDO_ID+" integer primary key, "+ PEDIDO_NAME +" text not null, "
+            + PEDIDO_PRICE +" integer not null )";
     //constructor
     public DataBaseHelper(Context ctx) {
         this.mCtx = ctx;
@@ -45,10 +54,12 @@ public class DataBaseHelper {
         }
         private void createTables(SQLiteDatabase db) {
             db.execSQL(DATABASE_CREATE_PIZZERIA);
+            db.execSQL(DATABASE_CREATE_PEDIDO);
         }
 
         private void deleteTables(SQLiteDatabase db) {
             db.execSQL("DROP TABLE IF EXISTS " + DataBaseHelper.DATABASE_TABLE_PIZZERIA);
+            db.execSQL("DROP TABLE IF EXISTS " + DataBaseHelper.DATABASE_TABLE_PEDIDO);
         }
     }
 
@@ -66,6 +77,8 @@ public class DataBaseHelper {
     public Cursor getItems() {
         //Parametros:nombreTabla,campos,campoWhere,condicionWhere,Group By, Havong, Order by
         return mDb.query(DATABASE_TABLE_PIZZERIA, new String[] {SL_ID, SL_NAME, SL_FOOD, SL_ID_PIZZA}, null, null, null, null, SL_ID_PIZZA);
+        return mDb.query(DATABASE_TABLE_PEDIDO, new String[] {SL_ID, SL_NAME, SL_FOOD, SL_ID_PIZZA}, null, null, null, null, SL_ID_PIZZA);
+
     }
 
 
