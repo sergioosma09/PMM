@@ -80,7 +80,11 @@ public class DataBaseHelper {
         return mDb.insert(DATABASE_TABLE_PIZZERIA, null, initialValues);
     }
     public void drop(){
+<<<<<<< HEAD
         this.mCtx.deleteDatabase(DATABASE_NAME);
+=======
+        this.mCtx.deleteDatabase(DATABASE_TABLE_PIZZERIA);
+>>>>>>> d944fb68d9e1df4cd7125b702faaf50bcee21bdb
     }
 
 }
