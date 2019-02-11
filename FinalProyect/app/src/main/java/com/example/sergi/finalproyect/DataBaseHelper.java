@@ -19,20 +19,20 @@ public class DataBaseHelper {
     public static final String SL_NAME = "name";
     public static final String SL_FOOD = "food";
     public static final String SL_ID_PIZZA = "importance";
-    public static final String SL_TYPE = "type";
+    public static final String SL_MASA = "masa";
 
 
     private static final String DATABASE_TABLE_PEDIDO="pedido";
     public static final String PEDIDO_ID="id";
-    public static final String PEDIDO_NAME="name";
+    public static final String PEDIDO_NAME="pizza_id";
     public static final String PEDIDO_PRICE="price";
 
     // SQL de creación de la tabla
     private static final String DATABASE_CREATE_PIZZERIA =
             "create table "+ DATABASE_TABLE_PIZZERIA +" ("+SL_ID+" integer primary key, "+ SL_NAME +" text not null, "+ SL_FOOD +" text not null, "
-                    + SL_ID_PIZZA +" integer not null, "+ SL_TYPE +" text)";
+                    + SL_ID_PIZZA +" integer not null, "+ SL_MASA +" text)";
     private static final String DATABASE_CREATE_PEDIDO =
-            "create table "+ DATABASE_TABLE_PEDIDO +" ("+PEDIDO_ID+" integer primary key, "+ PEDIDO_NAME +" text not null, "
+            "create table "+ DATABASE_TABLE_PEDIDO +" ("+PEDIDO_ID+" integer primary key, "+ PEDIDO_NAME +" references " + DATABASE_TABLE_PIZZERIA + " (" + SL_ID + ")" + " , "
             + PEDIDO_PRICE +" integer not null )";
     //constructor
     public DataBaseHelper(Context ctx) {
@@ -77,21 +77,30 @@ public class DataBaseHelper {
     public Cursor getItems() {
         //Parametros:nombreTabla,campos,campoWhere,condicionWhere,Group By, Havong, Order by
         return mDb.query(DATABASE_TABLE_PIZZERIA, new String[] {SL_ID, SL_NAME, SL_FOOD, SL_ID_PIZZA}, null, null, null, null, SL_ID_PIZZA);
-        return mDb.query(DATABASE_TABLE_PEDIDO, new String[] {SL_ID, SL_NAME, SL_FOOD, SL_ID_PIZZA}, null, null, null, null, SL_ID_PIZZA);
 
     }
+
 
 
 
     //crear elemento
-    public long insertItem(String name, String food, String type, int id_pizza){
+    public long insertItem(String name, String food, String masa, int id_pizza){
         ContentValues initialValues = new ContentValues();
         initialValues.put(SL_ID_PIZZA, id_pizza);
         initialValues.put(SL_NAME, name);
         initialValues.put(SL_FOOD, food);
-        initialValues.put(SL_TYPE, type);
+        initialValues.put(SL_MASA, masa);
         return mDb.insert(DATABASE_TABLE_PIZZERIA, null, initialValues);
     }
+
+    //crear elemento
+    public long insertItem2(int price,String name){
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(PEDIDO_PRICE, price);
+        initialValues.put(PEDIDO_NAME, name);
+        return mDb.insert(DATABASE_TABLE_PEDIDO, null, initialValues);
+    }
+
     public void drop(){
         this.mCtx.deleteDatabase(DATABASE_NAME);
     }

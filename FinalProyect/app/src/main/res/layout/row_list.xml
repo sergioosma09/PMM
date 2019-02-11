@@ -19,7 +19,7 @@
         android:gravity="center_vertical" />
 
     <TextView
-        android:id="@+id/row_item"
+        android:id="@+id/row_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@+id/row_id"
@@ -28,4 +28,5 @@
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
         android:gravity="right" />
+
 </RelativeLayout>

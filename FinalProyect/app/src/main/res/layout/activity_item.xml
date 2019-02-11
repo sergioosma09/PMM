@@ -59,11 +59,24 @@
 
 
         <EditText
-            android:id="@+id/type"
+            android:id="@+id/masa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:background="@android:drawable/editbox_background_normal"
-            android:hint="Type"/>
+            android:hint="Masa fina o original"/>
+
+        <EditText
+            android:id="@+id/precio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/namePizza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name Pizza" />
+
     </LinearLayout>
 </RelativeLayout>

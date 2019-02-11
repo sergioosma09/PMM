@@ -160,7 +160,7 @@ public class MainActivity extends ListActivity{
             View row = mInflater.inflate(R.layout.row_list, null);
             //rellenamos datos
             TextView food = (TextView) row.findViewById(R.id.row_food);
-            TextView name = (TextView) row.findViewById(R.id.row_item);
+            TextView name = (TextView) row.findViewById(R.id.row_name);
             food.setText(listEntry.food);
             name.setText(listEntry.name);
 
